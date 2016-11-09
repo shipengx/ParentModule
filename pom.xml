@@ -20,5 +20,6 @@
   <modules>
     <module>DesignPattern</module>
     <module>DPTest</module>
+    <module>Log4j</module>
   </modules>
 </project>
