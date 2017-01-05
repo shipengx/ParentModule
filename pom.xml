@@ -21,5 +21,8 @@
     <module>DesignPattern</module>
     <module>DPTest</module>
     <module>Log4j</module>
+    <module>JSON</module>
+    <module>Thread</module>
+    <module>SpringJDBC</module>
   </modules>
 </project>
