@@ -24,5 +24,6 @@
     <module>JSON</module>
     <module>Thread</module>
     <module>SpringJDBC</module>
+    <module>InnerClass</module>
   </modules>
 </project>
