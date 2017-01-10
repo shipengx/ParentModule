@@ -25,5 +25,6 @@
     <module>Thread</module>
     <module>SpringJDBC</module>
     <module>InnerClass</module>
+    <module>DataStructure</module>
   </modules>
 </project>
