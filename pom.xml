@@ -26,5 +26,8 @@
     <module>SpringJDBC</module>
     <module>InnerClass</module>
     <module>DataStructure</module>
+    <module>PasswordGenerator</module>
+    <module>Recursion</module>
+    <module>DProgramming</module>
   </modules>
 </project>
