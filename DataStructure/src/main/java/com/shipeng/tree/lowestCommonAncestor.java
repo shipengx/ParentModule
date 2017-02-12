@@ -20,7 +20,7 @@ package com.shipeng.tree;
 
 public class lowestCommonAncestor {
 
-	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+	public static TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		if (root == null) {
 			return null;
 		}
@@ -28,8 +28,8 @@ public class lowestCommonAncestor {
 			return root;
 		}
 		// what we get from left and right children
-		TreeNode left = lowestCommonAncestor(root.left, p, q);
-		TreeNode right = lowestCommonAncestor(root.right, p, q);
+		TreeNode left = LowestCommonAncestor(root.left, p, q);
+		TreeNode right = LowestCommonAncestor(root.right, p, q);
 		if (left != null && right != null) {
 			return root;
 		}
