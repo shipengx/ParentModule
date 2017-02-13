@@ -1,9 +1,4 @@
-package aa;
-
-/*
- * 
- * 
- */
+package apl;
 
 public class MergeTwoSortedLists {
 

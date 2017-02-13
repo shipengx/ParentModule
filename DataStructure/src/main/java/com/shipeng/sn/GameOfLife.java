@@ -1,4 +1,4 @@
-package com.shipeng.dropbox;
+package com.shipeng.sn;
 
 public class GameOfLife {
 
