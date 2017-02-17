@@ -68,6 +68,18 @@ public class User {
 		}
 	}
 	
+	public String toString() {
+		return "FirstName=" + this.firstName + ", LastName=" + this.lastName
+				+ ", Address=" + this.address + ", Age=" + this.age;
+	}
+	
+	public static void main(String[] args) {
+		
+		User user1 = new User.UserBuilder("Shipeng", "Xu").age(28).address("565 S 22nd ST, San Jose, CA").build();
+		System.out.println(user1);
+		
+	}
+	
 	
 	
 }//end class User
