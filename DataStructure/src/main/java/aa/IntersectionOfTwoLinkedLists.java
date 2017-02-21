@@ -1,5 +1,8 @@
 package aa;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * Intersection of two linked lists
  * 
@@ -23,10 +26,25 @@ package aa;
  * 
  */
 
-
 public class IntersectionOfTwoLinkedLists {
 
-	
-	
-	
+	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		Set<ListNode> set = new HashSet<ListNode>();
+
+		while (headA != null) {
+			set.add(headA);
+			headA = headA.next;
+		}
+
+		while (headB != null) {
+			if (!set.add(headB)) {
+				return headB;
+			}
+			headB = headB.next;
+		}
+
+		return null;
+
+	}
+
 }
