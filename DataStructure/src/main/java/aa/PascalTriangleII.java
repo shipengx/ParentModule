@@ -13,6 +13,14 @@ import java.util.List;
  * Note: 
  * Could you optimize your algorithm to use only O(k) extra space ?
  * 
+ * 1000 k = 0
+ * 1100 k = 1
+ * 1110 
+ * 1210 k = 2
+ * 1211
+ * 1231
+ * 1331 k = 3
+ * 
  * 
  */
 
@@ -31,6 +39,30 @@ public class PascalTriangleII {
 				result.set(j + 1, result.get(j) + result.get(j + 1));
 			}
 			result.add(1);
+		}
+		return result;
+	}
+
+	/* i <===> row
+	 * j <===> column
+	 * 
+	 * idea is to get current level from previous level.
+	 * calculate each position from right to left, to get the current level.
+	 * 
+	 */
+	
+	public List<Integer> getRowI(int rowIndex) {
+		ArrayList<Integer> result = new ArrayList<Integer>(rowIndex + 1);
+		for (int i = 0; i <= rowIndex; i++) {
+			result.add(0);
+		}
+		result.set(0, 1);
+		for (int i = 1; i <= rowIndex; i++) {
+			result.set(i, 1);
+			for (int j = i - 1; j > 0; j--) {
+				result.set(j, result.get(j) + result.get(j - 1));
+				//set current j column with what we have from previous level j column and j-1 column
+			}
 		}
 		return result;
 	}
