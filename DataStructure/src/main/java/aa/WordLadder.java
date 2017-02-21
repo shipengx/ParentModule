@@ -1,5 +1,11 @@
 package aa;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+
 /*
  * Word ladder
  * 
@@ -28,5 +34,47 @@ package aa;
  */
 
 public class WordLadder {
-	
+
+	public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+		Set<String> dict = new HashSet<String>();
+		for (String word : wordList) {
+			dict.add(word);
+		}
+
+		if (beginWord.equals(endWord)) {
+			return 1;
+		}
+
+		Set<String> visited = new HashSet<String>();
+		Queue<String> queue = new LinkedList<String>();
+		queue.offer(beginWord);
+		visited.add(beginWord);
+
+		int steps = 1;
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				String st = queue.remove();
+				if (st.equals(endWord)) {
+					return steps;
+				} else {
+					for (int j = 0; j < st.length(); j++) {
+						StringBuffer sb = new StringBuffer(st);
+						for (int k = 0; k < 26; k++) {
+							sb.setCharAt(j, (char) ('a' + k));
+							String next = sb.toString();
+							if (dict.contains(next) && !visited.contains(next)) {
+								queue.add(next);
+								visited.add(next);
+							}
+						}
+					}
+				}
+			}
+			steps++;
+		} // end while
+
+		return 0;
+	}
+
 }
