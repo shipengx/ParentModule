@@ -1,5 +1,8 @@
 package aa;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * Frog Jump
  * 
@@ -36,6 +39,27 @@ package aa;
 
 public class FrogJump {
 
-	
-	
+	public boolean canCross(int[] stones) {
+		int len = stones.length;
+		if (len == 2 && stones[1] - stones[0] > 1) {
+			return false;
+		}
+		Set[] lastPos = new Set[len + 1];
+		for (int i = 1; i < len; i++) {
+			lastPos[i] = new HashSet<>();
+		}
+		lastPos[1].add(1);
+		for (int i = 2; i < len; i++) {
+			for (int j = 1; j < i; j++) {
+				if (lastPos[j].size() > 0) {
+					int dist = stones[i] - stones[j];
+					if (lastPos[j].contains(dist) || lastPos[j].contains(dist - 1) || lastPos[j].contains(dist + 1)) {
+						lastPos[i].add(dist);
+					}
+				}
+			}
+		}
+		return lastPos[len - 1].size() > 0;
+	}
+
 }
