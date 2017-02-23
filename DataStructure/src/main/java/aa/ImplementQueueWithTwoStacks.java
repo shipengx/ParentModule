@@ -24,54 +24,38 @@ public class ImplementQueueWithTwoStacks {
 
 }
 
-class MyQueue {
+class MyStack {
 
-	private LinkedList<Integer> in;
-	private LinkedList<Integer> out;
+    private LinkedList<Integer> q1;
 
-	/** Initialize your data structure here. */
-	public MyQueue() {
-		in = new LinkedList<Integer>();
-		out = new LinkedList<Integer>();
-	}
-
-	/** Push element x to the back of queue. */
-	public void push(int x) {
-		// always push into the stack.
-		in.offerFirst(x);
-	}
-
-	/** Removes the element from in front of queue and returns that element. */
-	public int pop() {
-		// if out stack is empty,
-		// need to move the elements from in stack to out stack.
-		move();
-		return out.pollFirst();
-	}
-
-	/** Get the front element. */
-	public int peek() {
-		move();
-		return out.peekFirst();
-	}
-
-	// when out stack is empty, move the elements from in stack to out stack.
-	private void move() {
-		if (out.isEmpty()) {
-			while (!in.isEmpty()) {
-				out.offerFirst(in.pollFirst());
-			}
-		}
-	}
-
-	/** Returns whether the queue is empty. */
-	public boolean empty() {
-		return in.size() == 0 && out.size() == 0;
-	}
+    /** Initialize your data structure here. */
+    public MyStack() {
+        q1 = new LinkedList<>();
+    }
+    
+    /** Push element x onto stack. */
+    public void push(int x) {
+        q1.add(x);
+        int sz = q1.size();
+        while (sz > 1) {
+            q1.add(q1.remove());
+            sz--;
+        }
+        //last becomes first, all the ones before go to the end
+    }
+    
+    /** Removes the element on top of the stack and returns that element. */
+    public int pop() {
+        return q1.remove();
+    }
+    
+    /** Get the top element. */
+    public int top() {
+        return q1.peek();
+    }
+    
+    /** Returns whether the stack is empty. */
+    public boolean empty() {
+        return q1.isEmpty();
+    }
 }
-
-/**
- * Your MyQueue object will be instantiated and called as such: MyQueue obj =
- * new MyQueue(); obj.push(x); int param_2 = obj.pop(); int param_3 =
- * obj.peek(); boolean param_4 = obj.empty();
- */
