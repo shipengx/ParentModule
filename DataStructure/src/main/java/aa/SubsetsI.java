@@ -51,4 +51,35 @@ public class SubsetsI {
 		// previous level.
 		sb.deleteCharAt(sb.length() - 1);
 	}
+	
+	public static List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<Integer> path = new ArrayList<Integer>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        helper(result, path, nums, 0);
+        return result;
+    }
+    
+    private static void helper(List<List<Integer>> result, List<Integer> path, int[] nums, int index) {
+        if (index == nums.length) {
+            List<Integer> tmp = new ArrayList<Integer>();
+            tmp.addAll(path);
+            result.add(tmp);
+            return;
+        }
+        //do not add current index integer to the path
+        helper(result, path, nums, index+1);
+        //add current index integer to the path
+        path.add(nums[index]);
+        helper(result, path, nums, index+1);
+        path.remove(path.size()-1);
+    }
+    
+    public static void main(String[] args) {
+    	int[] input_array = new int[] { 1,2,3};
+    	List<List<Integer>> result = subsets(input_array);
+    	System.out.println(result);
+    }
 }
