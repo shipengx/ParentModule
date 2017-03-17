@@ -29,5 +29,6 @@
     <module>PasswordGenerator</module>
     <module>Recursion</module>
     <module>DProgramming</module>
+    <module>Guava</module>
   </modules>
 </project>
