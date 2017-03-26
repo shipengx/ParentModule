@@ -1,5 +1,10 @@
 package aa;
 
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+
 /*
  * Sort characters by frequency
  * 
@@ -41,5 +46,66 @@ package aa;
  */
 
 public class SortCharactersByFrequency {
+
+	public String frequencySort(String s) {
+		if (s == null || s.length() == 0) {
+			return "";
+		}
+		PriorityQueue<Node> maxHeap = new PriorityQueue<Node>(new Comparator<Node>() {
+			public int compare(Node n1, Node n2) {
+				if (n1.getFreq() < n2.getFreq())
+					return 1;
+				if (n1.getFreq() > n2.getFreq())
+					return -1;
+				return 0;
+			}
+		});
+		Map<Character, Node> map = new HashMap<Character, Node>();
+		for (char c : s.toCharArray()) {
+			if (!map.containsKey(c)) {
+				Node newNode = new Node(c, 1);
+				map.put(c, newNode);
+			} else {
+				Node tmp = map.get(c);
+				tmp.setFreq(tmp.getFreq() + 1);
+				map.put(c, tmp);
+			}
+		}
+		for (Node n : map.values()) {
+			maxHeap.add(n);
+		}
+		StringBuilder sb = new StringBuilder();
+		while (!maxHeap.isEmpty()) {
+			Node tmp = maxHeap.poll();
+			for (int i = 0; i < tmp.getFreq(); i++) {
+				sb.append(tmp.getChar());
+			}
+		}
+
+		return sb.toString();
+
+	}
+
+	private class Node {
+		public char character;
+		public int freq;
+
+		public Node(char c, int f) {
+			this.character = c;
+			this.freq = f;
+		}
+
+		public int getFreq() {
+			return this.freq;
+		}
+
+		public void setFreq(int freq) {
+			this.freq = freq;
+		}
+
+		public char getChar() {
+			return this.character;
+		}
+	}
 
 }
