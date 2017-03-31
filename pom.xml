@@ -30,5 +30,6 @@
     <module>Recursion</module>
     <module>DProgramming</module>
     <module>Guava</module>
+    <module>AdvancedDataStructure</module>
   </modules>
 </project>
