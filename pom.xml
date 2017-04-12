@@ -31,5 +31,6 @@
     <module>DProgramming</module>
     <module>Guava</module>
     <module>AdvancedDataStructure</module>
+    <module>Fundamentals</module>
   </modules>
 </project>
