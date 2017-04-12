@@ -1,20 +1,33 @@
-package com.shipeng.tree;
+package aa;
 
-/*
- * Delete in binary search tree
+/**
+ * Delete Node in a BST
  * 
- * Delete the target key K in the given binary search tree if the binary search tree contains K.
- * Return the root of the binary search tree.
+ * Given a root node reference of a BST and a key, delete the node with the
+ * given key in the BST. Return the root node reference (possibly updated) of
+ * the BST.
  * 
- * Find your own way to delete the node from the binary search tree, after deletion the binary search tree's
- * property should be maintained.
+ * Basically, the deletion can be divided into two stages: 1. Search for a node
+ * to remove 2. if the node is found, delete the node.
  * 
- * Assumptions:
- *     There are no duplicate keys in the binary search tree.
+ * Note: Time complexity should be O(height of tree).
  * 
+ * Example:
+ * 
+ * root = [5,3,6,2,4,null,7] key = 3
+ * 
+ * 5 3 6 2 4 7
+ * 
+ * Given key to delete is 3. So we find the node with value 3 and delete it. One
+ * valid answer is [5,4,6,2,null,null,7], shown in the following BST.
+ * 
+ * 5 4 6 2 7
+ * 
+ * Another valid answer is [5,2,6,null,4,null,7]. 5 2 6 4 7
+ *
  */
 
-public class DeleteInBinarySearchTree {
+public class DeleteNodeInABST {
 
 	public TreeNode deleteNode(TreeNode root, int key) {
 		if (root == null) {
@@ -55,10 +68,4 @@ public class DeleteInBinarySearchTree {
 		return prev;
 	}
 
-	 public class TreeNode {
-	     int val;
-	     TreeNode left;
-	     TreeNode right;
-	     TreeNode(int x) { val = x; }
-    }
 }
