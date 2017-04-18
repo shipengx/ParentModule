@@ -18,7 +18,6 @@ package com.shipeng.tree;
  * 
  */
 
-
 public class PathSum {
 
 	public boolean hasPathSum(TreeNode root, int sum) {
@@ -28,13 +27,29 @@ public class PathSum {
 		if (root.key == sum && root.left == null && root.right == null) {
 			return true;
 		}
-		boolean left  = hasPathSum(root.left, sum - root.key);
+		boolean left = hasPathSum(root.left, sum - root.key);
 		boolean right = hasPathSum(root.right, sum - root.key);
 		if (left == true || right == true) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
+
+	public boolean hasPathSumII(TreeNode root, int sum) {
+		if (root == null) {
+			return false;
+		}
+		if (root.left == null && root.right == null) {
+			if (sum == root.key) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		boolean left = hasPathSum(root.left, sum - root.key);
+		boolean right = hasPathSum(root.right, sum - root.key);
+		return left || right;
+	}
+
 }
