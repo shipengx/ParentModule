@@ -32,5 +32,7 @@
     <module>Guava</module>
     <module>AdvancedDataStructure</module>
     <module>Fundamentals</module>
+    <module>Generics</module>
+    <module>ChatServer</module>
   </modules>
 </project>
