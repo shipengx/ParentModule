@@ -42,3 +42,9 @@ Thumbs.db
 *.classpath
 *.project
 *.prefs
+
+
+.settings
+.classpath
+.project
+.prefs
