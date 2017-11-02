@@ -35,5 +35,6 @@
     <module>Generics</module>
     <module>ChatServer</module>
     <module>SpringAutoScanning</module>
+    <module>Security</module>
   </modules>
 </project>
