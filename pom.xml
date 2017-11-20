@@ -36,5 +36,6 @@
     <module>ChatServer</module>
     <module>SpringAutoScanning</module>
     <module>Security</module>
+    <module>Expression</module>
   </modules>
 </project>
