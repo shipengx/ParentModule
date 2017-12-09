@@ -23,6 +23,18 @@ package com.shipeng.bit;
 
 public class HammingDistance {
 
-	
-	
+	public int hammingDistance(int x, int y) {
+		int mask = 1;
+		int count = 0;
+		for (int i = 0; i < 32; i++) {
+			int cur1 = mask & x;
+			int cur2 = mask & y;
+			if (cur1 != cur2) {
+				count++;
+			}
+			mask = mask << 1;
+		}
+		return count;
+	}
+
 }
