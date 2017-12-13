@@ -9,8 +9,6 @@ package com.shipeng.bit;
  * This is how the UTF-8 encoding would work:
  * 
  * 
- * 
- * 
  */
 
 public class UTF8Validation {
