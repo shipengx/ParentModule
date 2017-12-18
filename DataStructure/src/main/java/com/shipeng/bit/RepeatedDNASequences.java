@@ -57,6 +57,8 @@ public class RepeatedDNASequences {
 		map['C'] = 1;
 		map['G'] = 2;
 		map['T'] = 3;
+		// mask is a hexadecimal number of 20 "1"s. it's used for comparison for "10
+		// character long subsequence"
 		int mask = 0xfffff;
 		int val = 0;
 		char[] charArray = s.toCharArray();
