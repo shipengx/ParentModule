@@ -41,4 +41,29 @@ package com.shipeng.bit;
 
 public class UTF8Validation {
 
+	public static void main(String[] args) {
+        int[] data = new int[] {197, 130, 1};
+        boolean result = validUtf8(data);
+        System.out.println("result is : " + result);
+	}
+
+	public static boolean validUtf8(int[] data) {
+        if (data == null) {
+            return false;
+        }
+        int count = 0;
+        for (int d : data) {
+            if (count == 0) {
+                if ((d >> 5) == 6) count = 1;
+                else if (( d >> 4 ) == 14) count = 2;
+                else if (( d >> 3 ) == 30) count = 3;
+                else if ((d >> 7) == 1) return false;
+            }else {
+                if ((d >> 6) != 2) return false;
+                count--;
+            }
+        }
+        return count == 0;
+    }
+
 }
