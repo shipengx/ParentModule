@@ -9,8 +9,9 @@ import java.util.concurrent.TimeUnit;
 public class ScheduledThreadPoolExecutorExample {
 
 	public static void main(String[] args) {
-		ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+		ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
 		Task task1 = new Task("Demo Task 1");
+		Task1 task2 = new Task1("Demo Task 2");
 
 		System.out.println("The time is : " + new Date());
 
@@ -21,6 +22,7 @@ public class ScheduledThreadPoolExecutorExample {
 		// 4. and the time unit of hte second and third parameters
 		
 		ScheduledFuture<?> result = executor.scheduleAtFixedRate(task1, 1, 1, TimeUnit.SECONDS);
+		ScheduledFuture<?> result2 = executor.scheduleAtFixedRate(task2, 1, 1, TimeUnit.SECONDS);
 
 		try {
 			TimeUnit.MILLISECONDS.sleep(20000);
