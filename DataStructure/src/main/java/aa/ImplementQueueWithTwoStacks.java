@@ -1,6 +1,7 @@
 package aa;
 
-import java.util.LinkedList;
+
+import java.util.Stack;
 
 /*
  * Implement queue using stacks
@@ -22,40 +23,44 @@ import java.util.LinkedList;
 
 public class ImplementQueueWithTwoStacks {
 
-}
+    Stack in;
+    Stack out;
 
-class MyStack {
-
-    private LinkedList<Integer> q1;
-
-    /** Initialize your data structure here. */
-    public MyStack() {
-        q1 = new LinkedList<>();
+    /** Initialize your data structure here */
+    public ImplementQueueWithTwoStacks() {
+        in = new Stack();
+        out = new Stack();
     }
-    
-    /** Push element x onto stack. */
+
+    /** Push element x to the back of queue. */
     public void push(int x) {
-        q1.add(x);
-        int sz = q1.size();
-        while (sz > 1) {
-            q1.add(q1.remove());
-            sz--;
-        }
-        //last becomes first, all the ones before go to the end
+        // aways push into the in stack
+        in.push(x);
     }
-    
-    /** Removes the element on top of the stack and returns that element. */
+
+    /** Removes the element from in from of the queue and returns the element */
     public int pop() {
-        return q1.remove();
+        move();
+        return (int) out.pop();
     }
-    
-    /** Get the top element. */
-    public int top() {
-        return q1.peek();
+
+    public void move() {
+        if (out.isEmpty()) {
+            while (!in.isEmpty()) {
+                out.push(in.pop());
+            }
+        }
     }
-    
-    /** Returns whether the stack is empty. */
+
+    /** Get the front element . */
+    public int peek() {
+        move();
+        return (int)out.peek();
+    }
+
+    /** Returns whether the queue is empty. */
     public boolean empty() {
-        return q1.isEmpty();
+        return in.isEmpty() && out.isEmpty();
     }
+
 }

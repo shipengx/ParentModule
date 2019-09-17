@@ -1,3 +1,9 @@
 /target/
 *.properties
 *.classpath
+*.iml
+*.idea
+*.classpath
+*.project
+
+
