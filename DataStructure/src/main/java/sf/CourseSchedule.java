@@ -65,6 +65,11 @@ public class CourseSchedule {
         if (visited[curr] == 1) {
             return false;
         }
+        /*
+             if (visited[curr] == 2) {
+                return true;
+             }
+         */
         visited[curr] = 1;
         for (int next : graph.get(curr)) {
             if (!canFinish(next, graph, visited)) {
@@ -72,6 +77,7 @@ public class CourseSchedule {
             }
         }
         visited[curr] = 0;
+        // or visited[curr] = 2;
         return true;
     }
 
