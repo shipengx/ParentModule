@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-backend
+spec:
+  selector:
+      matchLabels:
+        app: demo-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo-backend
+    spec:
+      containers:
+        - name: demo-backend
+          image: myspringbootapp:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: application-config
+            mountPath: "/deployments/config"
+      volumes:
+      - name: application-config
+        configMap:
+          name: spring-app-config 
+          items:
+          - key: test.properties 
+            path: application.properties
