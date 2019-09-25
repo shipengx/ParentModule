@@ -28,5 +28,6 @@ kubectl expose deployment myspringbootapp --type=NodePort
 
 curl -X GET http://$(minikube ip):30486/
 
-
+# display log messages from a pod by pod name
+kubectl logs  demo-backend-7d4b47dbcb-7lvxd
 
