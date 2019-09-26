@@ -14,8 +14,19 @@ public class HelloController {
     private static final Logger LOG = LoggerFactory.getLogger(HelloController.class);
 
     @Autowired
-    @Qualifier("message")
-    public String message;
+    @Qualifier("gcpProjectId")
+    public String gcpProjectId;
+
+    @Autowired
+    @Qualifier("bqDatasetId")
+    public String bqDatasetId;
+
+    /*
+    @Autowired
+    @Qualifier("threadPoolSize")
+    public int threadPoolSize;
+    */
+
 
     @RequestMapping("/")
     public String index() {
@@ -26,6 +37,11 @@ public class HelloController {
         */
 
         LOG.info("hahahahajk.com");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("gcp project id : " + gcpProjectId + ", bq dataset id : " + bqDatasetId);
+
+        String message = sb.toString();
 
         return message == null ? "failure" : message;
 

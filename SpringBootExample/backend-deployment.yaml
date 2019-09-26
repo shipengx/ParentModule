@@ -20,11 +20,12 @@ spec:
             - containerPort: 8080
           volumeMounts:
           - name: application-config
-            mountPath: "/deployments/config"
+            mountPath: "/deployment/config"
       volumes:
       - name: application-config
         configMap:
-          name: spring-app-config 
+          name: discovery-engine-config
           items:
-          - key: test.properties 
-            path: application.properties
+          - key: common.properties
+            path: common.properties
+
