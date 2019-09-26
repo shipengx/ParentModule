@@ -28,4 +28,6 @@ spec:
           items:
           - key: common.properties
             path: common.properties
+          - key: discovery-engine.properties
+            path: discovery-engine.properties
 

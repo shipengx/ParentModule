@@ -21,11 +21,9 @@ public class HelloController {
     @Qualifier("bqDatasetId")
     public String bqDatasetId;
 
-    /*
     @Autowired
     @Qualifier("threadPoolSize")
     public int threadPoolSize;
-    */
 
 
     @RequestMapping("/")
@@ -36,10 +34,12 @@ public class HelloController {
         return prefix.equals("Hi") ? "default string" : prefix;
         */
 
-        LOG.info("hahahahajk.com");
+        LOG.info("aaaaaa.com");
 
         StringBuilder sb = new StringBuilder();
-        sb.append("gcp project id : " + gcpProjectId + ", bq dataset id : " + bqDatasetId);
+        sb.append("gcp project id : " + gcpProjectId + ", bq dataset id : " + bqDatasetId
+        + ", thread pool size : " + threadPoolSize);
+        sb.append("\n");
 
         String message = sb.toString();
 

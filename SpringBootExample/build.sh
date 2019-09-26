@@ -31,3 +31,20 @@ curl -X GET http://$(minikube ip):30486/
 # display log messages from a pod by pod name
 kubectl logs  demo-backend-7d4b47dbcb-7lvxd
 
+
+
+
+
+
+
+
+kubectl delete service demo-backend;
+kubectl delete deployment demo-backend;
+
+mvn clean package;
+docker build -t myspringbootapp .;
+kubectl create -f backend-deployment.yaml;
+kubectl create -f backend-service.yaml;
+
+
+

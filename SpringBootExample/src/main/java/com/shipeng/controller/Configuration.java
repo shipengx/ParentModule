@@ -6,9 +6,8 @@ import org.springframework.context.annotation.PropertySource;
 
 @org.springframework.context.annotation.Configuration
 @PropertySource("file:///deployment/config/common.properties")
-//@PropertySource("file:///deployment/config/discovery-engine.properties")
+@PropertySource("file:///deployment/config/discovery-engine.properties")
 public class Configuration {
-
 
     @Value("${google_cloud.adara.discovery.project_id}")
     private String gcpProjectId;
@@ -16,11 +15,8 @@ public class Configuration {
     @Value("${google_cloud.adara.discovery.dataset}")
     private String bqDatasetId;
 
-    /*
     @Value("${discovery.group.query.executor.thread.pool.size}")
     private int threadPoolSize;
-    */
-
 
     @Bean(name="gcpProjectId")
     public String getGcpProjectId() {
@@ -32,11 +28,9 @@ public class Configuration {
         return this.bqDatasetId;
     }
 
-    /*
     @Bean(name="threadPoolSize")
     public int getThreadPoolSize() {
         return this.threadPoolSize;
     }
-    */
 
 }
