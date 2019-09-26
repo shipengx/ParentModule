@@ -32,9 +32,8 @@ curl -X GET http://$(minikube ip):30486/
 kubectl logs  demo-backend-7d4b47dbcb-7lvxd
 
 
-
-
-
+# Create the configmap
+kubectl create configmap game-config --from-file=configure-pod-container/configmap/
 
 
 
