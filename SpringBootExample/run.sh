@@ -14,5 +14,8 @@ docker build -t myspringbootapp .;
 kubectl create -f backend-deployment.yaml;
 kubectl create -f backend-service.yaml;
 
+# wait for 5 seconds
+sleep 5
 
+curl -X GET http://$(minikube ip):31001/
 
