@@ -20,7 +20,7 @@ spec:
             - containerPort: 8080
           volumeMounts:
           - name: application-config
-            mountPath: "/deployment/config"
+            mountPath: "/opt/opinmind/conf"
       volumes:
       - name: application-config
         configMap:

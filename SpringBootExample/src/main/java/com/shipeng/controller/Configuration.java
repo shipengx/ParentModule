@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 
 @org.springframework.context.annotation.Configuration
-@PropertySource("file:///deployment/config/common.properties")
-@PropertySource("file:///deployment/config/discovery-engine.properties")
+@PropertySource("file:///opt/opinmind/conf/common.properties")
+@PropertySource("file:///opt/opinmind/conf/discovery-engine.properties")
 public class Configuration {
 
     @Value("${google_cloud.adara.discovery.project_id}")
