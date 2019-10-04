@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-backend
+spec:
+  selector:
+      matchLabels:
+        app: demo-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo-backend
+    spec:
+      containers:
+        - name: demo-backend
+          image: myspringbootapp:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: application-config
+            mountPath: "/opt/opinmind/conf"
+      volumes:
+      - name: application-config
+        configMap:
+          name: discovery-engine-config
+          items:
+          - key: common.properties
+            path: common.properties
+          - key: discovery-engine.properties
+            path: discovery-engine.properties
+
